@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iMart - Accueil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary: #1f2937;
+      --accent: #3b82f6;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-[color:var(--primary)] font-sans">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between shadow-sm">
+    <div class="flex items-center space-x-3">
+      <img src="smart-logo.png" alt="Logo iMart" class="h-10 w-auto">
+      <span class="text-xl font-semibold">iMart</span>
+    </div>
+    <a href="mailto:Imart@outlook.fr" class="text-sm text-[color:var(--accent)] hover:underline">Imart@outlook.fr</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Votre smartphone, entre de bonnes mains</h1>
+    <p class="text-lg md:text-xl text-gray-600 mb-6">Réparation rapide, fiable et locale à Albi</p>
+    <a href="#chat" class="bg-[color:var(--accent)] text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Poser une question</a>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chat" class="py-16 px-4">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-2xl font-bold mb-2 text-center">💬 Assistance iMart</h2>
+      <p class="text-center text-gray-600 mb-6">Posez votre question, notre assistant vous répond instantanément.</p>
+      <div id="chatbox" class="border border-gray-300 rounded-lg p-4 h-96 overflow-y-auto bg-white mb-4">
+        <div class="flex items-start space-x-2 mb-4">
+          <img src="smart-logo.png" alt="iMart Bot" class="h-6 w-6 rounded-full">
+          <div class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm">
+            Bonjour ! Je suis le robot iMart. Posez-moi une question.
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <input type="text" id="userInput" class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm" placeholder="Écrivez votre question ici...">
+        <button onclick="sendMessage()" class="bg-[color:var(--accent)] text-white px-4 py-2 rounded text-sm">Envoyer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-300 text-center p-6 mt-12 text-sm text-gray-500">
+    &copy; 2025 iMart. Tous droits réservés. | <a href="mailto:Imart@outlook.fr" class="text-[color:var(--accent)] hover:underline">Imart@outlook.fr</a>
+  </footer>
+
+  <!-- Chatbot Script -->
+  <script>
+    const priceData = {
+      "iphone 7": { screen: 81, battery: 53 },
+      "iphone 7 plus": { screen: 90, battery: 48 },
+      "iphone 8": { screen: 92, battery: 52 },
+      "iphone 8 plus": { screen: 81, battery: 52 },
+      "iphone x": { screen: 82, battery: 62 },
+      "iphone xr": { screen: 85, battery: 62 },
+      "iphone 11": { screen: 94, battery: 57 },
+      "iphone 12": { screen: 92, battery: 66 },
+      "iphone 12 pro": { screen: 92, battery: 66 },
+      "iphone 12 mini": { screen: null, battery: 66 },
+      "iphone 13": { screen: 119, battery: 62 },
+      "iphone 13 mini": { screen: 119, battery: 62 },
+      "iphone 13 pro": { screen: 128, battery: 62 },
+      "iphone 13 pro max": { screen: 119, battery: 66 },
+      "iphone 14": { screen: 101, battery: 80 },
+      "iphone 14 pro": { screen: 122, battery: 71 },
+      "iphone 14 pro max": { screen: 122, battery: 71 },
+      "iphone 15": { screen: 94, battery: 80 },
+      "iphone 15 pro": { screen: 196, battery: null },
+      "iphone 15 pro max": { screen: null, battery: null }
+    };
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (message === '') return;
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `
+        <div class='text-right mb-2'>
+          <span class='inline-block bg-blue-100 text-blue-800 px-3 py-2 rounded-lg text-sm'>${message}</span>
+        </div>`;
+
+      const lower = message.toLowerCase();
+      let reply = "Je n'ai pas compris. Essayez une question comme 'combien coûte un écran iPhone 13 ?'.";
+
+      if (lower.includes("bonjour")) reply = "Bonjour ! Comment puis-je vous aider aujourd'hui ? 😊";
+      else if (lower.includes("rdv") || lower.includes("rendez-vous")) reply = "Bien sûr ! Envoyez-nous un message à Imart@outlook.fr pour fixer un créneau 📅. On vous répondra rapidement avec plaisir !";
+      else if (lower.includes("delai") || lower.includes("délai") || lower.includes("temps")) reply = "Bonne nouvelle ! La plupart des réparations sont faites sous 24h ⏱️. Vous pouvez nous contacter si vous avez une urgence !";
+      else if (lower.includes("eau") || lower.includes("tombé")) reply = "Pas de panique ! Nous proposons un diagnostic à 25 € pour les dégâts liés à l’eau 💧. Envoyez-nous un message dès que possible pour qu’on puisse vous aider !";
+      else if (lower.includes("débloquage") || lower.includes("mise à jour") || lower.includes("bloqué")) reply = "Oui bien sûr ! Nous faisons les déblocages et mises à jour pour 30 €. Écrivez-nous à Imart@outlook.fr et nous vous répondrons rapidement.";
+      else {
+        for (let model in priceData) {
+          if (lower.includes(model)) {
+            if (lower.includes("écran") || lower.includes("ecran") || lower.includes("cassé")) {
+              reply = `Bien sûr ! Le remplacement de l'écran pour ${model} coûte ${priceData[model].screen} € 😊. N'hésitez pas si vous avez d'autres questions !`;
+              break;
+            }
+            if (lower.includes("batterie")) {
+              reply = `Avec plaisir ! Le changement de batterie pour ${model} revient à ${priceData[model].battery} € 🔋. Si vous avez besoin d’aide pour autre chose, je suis là !`;
+              break;
+            }
+          }
+        }
+      }
+
+      chatbox.innerHTML += `
+        <div class='flex items-start space-x-2 mb-2'>
+          <img src='smart-logo.png' class='h-6 w-6 rounded-full'>
+          <div class='inline-block bg-gray-200 text-gray-800 px-3 py-2 rounded-lg text-sm'>${reply}</div>
+        </div>`;
+
+      chatbox.scrollTop = chatbox.scrollHeight;
+      input.value = '';
+    }
+  </script>
+</body>
+</html>
