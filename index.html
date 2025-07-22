@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iMart - Réparation iPhone</title>
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url('smart-logo.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      backdrop-filter: blur(8px);
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .tarif-section {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .tarif-section h2 {
+      color: #FFD700;
+    }
+    .tarif-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .tarif-section li {
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .slogan {
+      text-align: center;
+      font-style: italic;
+      margin-top: 15px;
+    }
+    .email {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<div class="overlay">
+<h1>iMart</h1>
+<div class="slogan">« Votre téléphone est entre de bonnes mains »</div>
+<div class="tarif-section">
+<h2>📱 Vitres arrière – Tarifs</h2>
+<ul>
+<li>iPhone 6 – 8 Plus : 49 €</li>
+<li>iPhone X – XR : 52 €</li>
+<li>iPhone 11 – 12 : 55 €</li>
+<li>iPhone 12 Pro : 56 €</li>
+<li>iPhone 13 – 14 : 58 €</li>
+<li>iPhone 15 – 15 Pro / Max : 60 €</li>
+</ul>
+</div>
+<div class="tarif-section">
+<h2>📲 Vitres avant (écrans complets)</h2>
+<ul>
+<li>iPhone X : 97 €</li>
+<li>iPhone 11 Pro : 107 €</li>
+<li>iPhone 12/12 mini : 107 €</li>
+<li>iPhone 13/13 mini : 137 €</li>
+<li>iPhone 14 : 117 €</li>
+<li>iPhone 14 Pro Max : 140 €</li>
+<li>iPhone 15 Pro : 140 €</li>
+</ul>
+</div>
+<div class="tarif-section">
+<h2>🔌 Boutons &amp; câbles</h2>
+<ul>
+<li>Power / Volume iPhone 14 : 60 €</li>
+<li>Power / Volume iPhone 15 Pro(Max) : 72 €</li>
+<li>Boutons façade iPhone 13 / 13 mini : 48 €</li>
+</ul>
+</div>
+<div class="email">imart@outlook.fr</div>
+</div>
+
+<script>
+  const priceData = {
+  "iphone x": {
+    "screen": 97,
+    "back": 52
+  },
+  "iphone xr": {
+    "back": 52
+  },
+  "iphone 11 pro": {
+    "screen": 107
+  },
+  "iphone 12": {
+    "screen": 107,
+    "back": 55
+  },
+  "iphone 12 mini": {
+    "screen": 107
+  },
+  "iphone 12 pro": {
+    "back": 56
+  },
+  "iphone 13": {
+    "screen": 137,
+    "back": 58,
+    "buttons_front": 48
+  },
+  "iphone 13 mini": {
+    "screen": 137,
+    "buttons_front": 48
+  },
+  "iphone 14": {
+    "screen": 117,
+    "back": 58,
+    "power_volume": 60
+  },
+  "iphone 14 pro max": {
+    "screen": 140
+  },
+  "iphone 15 pro": {
+    "screen": 140,
+    "power_volume": 72,
+    "back": 60
+  },
+  "iphone 15 pro max": {
+    "power_volume": 72,
+    "back": 60
+  },
+  "iphone 6": {
+    "back": 49
+  },
+  "iphone 6s": {
+    "back": 49
+  },
+  "iphone 7": {
+    "back": 49
+  },
+  "iphone 8 plus": {
+    "back": 49
+  }
+};
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === '') return;
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML += `<div style='text-align:right'><span style='background:#DCF8C6;padding:5px 10px;border-radius:10px;margin:5px 0;display:inline-block;'>${message}</span></div>`;
+
+    const lower = message.toLowerCase();
+    let reply = "Désolé, je n'ai pas trouvé ce modèle ou cette réparation. Essayez par exemple : 'Combien pour la vitre arrière iPhone 13 ?'";
+
+    for (let model in priceData) {
+      if (lower.includes(model)) {
+        const data = priceData[model];
+        if (lower.includes("écran") || lower.includes("ecran") || lower.includes("vitre avant")) {
+          if (data.screen) reply = "Le remplacement d'écran pour " + model + " coûte " + data.screen + " € ✅";
+        } else if (lower.includes("batterie") && data.battery) {
+          reply = "Le changement de batterie pour " + model + " coûte " + data.battery + " € 🔋";
+        } else if (lower.includes("vitre arrière") || lower.includes("arrière") || lower.includes("dos") || lower.includes("back")) {
+          if (data.back) reply = "Le remplacement de la vitre arrière pour " + model + " est de " + data.back + " € 🛠️";
+        } else if (lower.includes("bouton") || lower.includes("volume") || lower.includes("power")) {
+          if (data.power_volume) reply = "Les boutons volume/power pour " + model + " sont à " + data.power_volume + " €";
+          else if (data.buttons_front) reply = "Les boutons façade pour " + model + " sont à " + data.buttons_front + " €";
+        }
+      }
+    }
+
+    chatbox.innerHTML += `<div style='text-align:left'><span style='background:#eee;padding:5px 10px;border-radius:10px;margin:5px 0;display:inline-block;'>${reply}</span></div>`;
+    chatbox.scrollTop = chatbox.scrollHeight;
+    input.value = '';
+  }
+</script>
+</body>
+</html>
