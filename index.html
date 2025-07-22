@@ -1,192 +1,193 @@
 
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>iMart - Réparation iPhone</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --primary: #1f2937;
-      --accent: #3b82f6;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iMart - Site Officiel</title>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    body {
-      background: url('logo-fond.png') no-repeat center center fixed;
-      background-size: cover;
-      backdrop-filter: blur(5px);
+    body, html {
+      height: 100%;
+      font-family: sans-serif;
+      color: white;
+      position: relative;
     }
-  </style>
-</head>
-<body class="text-white">
-  <header class="flex justify-between items-center p-4 bg-black/60">
-    <img src="smart-logo.png" alt="Logo iMart" class="h-10">
-  </header>
 
-  <main class="p-6">
-    <h1 class="text-center text-3xl font-bold mb-6">« Votre téléphone est entre de bonnes mains »</h1>
-
-    <section class="bg-white/10 p-4 rounded mb-6">
-      <h2 class="text-xl font-semibold mb-2">🔧 Vitre arrière – Tarifs</h2>
-      <ul class="text-white text-sm">
-        <li>iPhone 7 – 8 Plus : 49 €</li>
-        <li>iPhone X – XR : 52 €</li>
-        <li>iPhone 11 – 12 : 55 €</li>
-        <li>iPhone 13 – 14 : 58 €</li>
-        <li>iPhone 15 – 15 Pro Max : 60 €</li>
-      </ul>
-    </section>
-
-    <section class="bg-white/10 p-4 rounded mb-6">
-      <h2 class="text-xl font-semibold mb-2">📱 Vitre avant (écrans complets)</h2>
-      <ul class="text-white text-sm">
-        <li>iPhone X : 97 €</li>
-        <li>iPhone 11 Pro : 107 €</li>
-        <li>iPhone 12/12 mini : 107 €</li>
-        <li>iPhone 13/13 mini : 137 €</li>
-        <li>iPhone 14 : 117 €</li>
-        <li>iPhone 14 Pro Max : 140 €</li>
-        <li>iPhone 15 Pro : 140 €</li>
-      </ul>
-    </section>
-
-    <section class="bg-white/10 p-4 rounded mb-6">
-      <h2 class="text-xl font-semibold mb-2">🛠️ Boutons & câbles</h2>
-      <ul class="text-white text-sm">
-        <li>iPhone 14 Power/Volume : 60 €</li>
-        <li>iPhone 15 Pro(Max) Power/Volume : 72 €</li>
-        <li>iPhone 13 / 13 mini boutons façade : 48 €</li>
-      </ul>
-    </section>
-
-    
-<section class="bg-white/10 p-4 rounded mb-6">
-  <h2 class="text-xl font-semibold mb-2">📸 Caméras - Avant et Arrière</h2>
-  <ul class="text-white text-sm">
-<li>iPhone 7 - Caméra avant : 58 €, Caméra arrière : 58 €</li>
-<li>iPhone 8 - Caméra avant : 58 €, Caméra arrière : 58 €</li>
-<li>iPhone X - Caméra avant : 60 €, Caméra arrière : 60 €</li>
-<li>iPhone 11 - Caméra avant : 68 €, Caméra arrière : 68 €</li>
-<li>iPhone 12 - Caméra avant : 70 €, Caméra arrière : 70 €</li>
-<li>iPhone 13 - Caméra avant : 74 €, Caméra arrière : 74 €</li>
-<li>iPhone 14 - Caméra avant : 76 €, Caméra arrière : 76 €</li>
-<li>iPhone 14 Pro - Caméra avant : 98 €, Caméra arrière : 98 €</li>
-<li>iPhone 15 Pro Max - Caméra avant : 100 €, Caméra arrière : 100 €</li>
-
-  </ul>
-</section>
-
-
-<section class="bg-white/10 p-4 rounded mb-6">
-  <h2 class="text-xl font-semibold mb-2">🎙️ Autres pièces – Haut-parleurs, Micros, Face ID</h2>
-  <ul class="text-white text-sm">
-<li>iPhone X – Haut-parleur : 62 €, Micro : 58 €, Face ID : 85 €</li>
-<li>iPhone 11 – Haut-parleur : 64 €, Micro : 60 €, Face ID : 80 €</li>
-<li>iPhone 12 – Haut-parleur : 67 €, Micro : 63 €, Face ID : 87 €</li>
-<li>iPhone 13 – Haut-parleur : 69 €, Micro : 65 €, Face ID : 90 €</li>
-<li>iPhone 14 – Haut-parleur : 70 €, Micro : 66 €, Face ID : 93 €</li>
-<li>iPhone 15 – Haut-parleur : 72 €, Micro : 68 €, Face ID : 96 €</li>
-</ul>
-</section>
-<section id="chat" class="bg-white/10 p-4 rounded">
-      <h2 class="text-xl font-semibold mb-2">💬 Assistant iMart</h2>
-      <p class="text-sm text-gray-200 mb-4">Pose ta question (ex. “prix vitre arrière iPhone 12”)</p>
-      <div id="chatbox" class="h-64 overflow-y-auto p-2 mb-2 bg-white/20 rounded text-sm"></div>
-      <div class="flex gap-2">
-        <input type="text" id="userInput" class="flex-1 rounded px-3 py-2 text-black" placeholder="Ta question ici..."/>
-        <button onclick="sendMessage()" class="bg-[color:var(--accent)] px-4 py-2 rounded text-white">Envoyer</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="text-center text-sm text-gray-300 mt-10 p-4">
-    © 2025 iMart – Contact : <a href="mailto:Imart@outlook.fr" class="underline">Imart@outlook.fr</a>
-  </footer>
-
-  <script>
-    const prices = {      "iphone x": { speaker: 62, mic: 58, faceid: 85 },
-      "iphone 11": { speaker: 64, mic: 60, faceid: 80 },
-      "iphone 12": { speaker: 67, mic: 63, faceid: 87 },
-      "iphone 13": { speaker: 69, mic: 65, faceid: 90 },
-      "iphone 14": { speaker: 70, mic: 66, faceid: 93 },
-      "iphone 15": { speaker: 72, mic: 68, faceid: 96 },
-
-      "iphone 7": { camera: 58 },
-      "iphone 8": { camera: 58 },
-      "iphone x": { camera: 60 },
-      "iphone 11": { camera: 68 },
-      "iphone 12": { camera: 70 },
-      "iphone 13": { camera: 74 },
-      "iphone 14": { camera: 76 },
-      "iphone 14 pro": { camera: 98 },
-      "iphone 15 pro max": { camera: 100 },
-
-      "iphone x": { screen: 97, back: 52 },
-      "iphone 11 pro": { screen: 107 },
-      "iphone 12": { screen: 107, back: 55 },
-      "iphone 12 mini": { screen: 107 },
-      "iphone 13": { screen: 137, back: 58 },
-      "iphone 13 mini": { screen: 137 },
-      "iphone 14": { screen: 117, back: 58 },
-      "iphone 14 pro max": { screen: 140 },
-      "iphone 15 pro": { screen: 140, back: 60 },
-      "iphone 15 pro max": { back: 60 },
-      "iphone 7": { back: 49 },
-      "iphone 8 plus": { back: 49 },
-      "iphone xr": { back: 52 },
-    };
-
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const msg = input.value.trim().toLowerCase();
-      if (!msg) return;
-
-      const chatbox = document.getElementById("chatbox");
-      chatbox.innerHTML += `<div class="text-right mb-1"><span class="bg-blue-300 text-black px-2 py-1 rounded inline-block">${msg}</span></div>`;
-
-      
-      else if (lower.includes("caméra") || lower.includes("camera")) {
-        for (let model in prices) {
-          if (lower.includes(model)) {
-            let camPrice = prices[model]?.camera || "variable selon le modèle";
-            response = `Oui, la caméra de l’iPhone ${model.toUpperCase()} est à ${camPrice} € 😊`;
-            break;
-          }
-        }
-      }
-
-      
-      else if (lower.includes("haut-parleur") || lower.includes("haut parleur") || lower.includes("micro") || lower.includes("face id")) {
-        for (let model in prices) {
-          if (lower.includes(model)) {
-            if (lower.includes("haut-parleur") || lower.includes("haut parleur")) {
-              response = `Le haut-parleur de l’iPhone ${model.toUpperCase()} coûte ${prices[model]?.speaker} € 🔊`;
-            } else if (lower.includes("micro")) {
-              response = `Le micro de l’iPhone ${model.toUpperCase()} est à ${prices[model]?.mic} € 🎤`;
-            } else if (lower.includes("face id")) {
-              response = `Le module Face ID de l’iPhone ${model.toUpperCase()} est à ${prices[model]?.faceid} € 😎`;
-            }
-            break;
-          }
-        }
-      }
-
-      let response = "Je n'ai pas compris 🤔. Essaie de demander par exemple : 'vitre arrière iPhone 13'.";
-      for (let model in prices) {
-        if (msg.includes(model)) {
-          if (msg.includes("vitre arrière") || msg.includes("verre arrière")) {
-            response = `Oui, on remplace la vitre arrière de l’iPhone ${model.toUpperCase()} pour ${prices[model].back} € 😊`;
-          } else if (msg.includes("écran") || msg.includes("vitre avant")) {
-            response = `Oui, l’écran complet de l’iPhone ${model.toUpperCase()} est à ${prices[model].screen} € 😊`;
-          }
-          break;
-        }
-      }
-
-      chatbox.innerHTML += `<div class="text-left mb-2"><span class="bg-white text-black px-2 py-1 rounded inline-block">${response}</span></div>`;
-      chatbox.scrollTop = chatbox.scrollHeight;
-      input.value = "";
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
     }
-  </script>
-</body>
+
+    .background-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 60px;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .blur-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      padding: 20px 40px;
+      border-radius: 12px;
+    }
+
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+
+    .email {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 1em;
+    }
+  
+/* Effet de survol sur messages */
+#chatbox div:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  transition: background-color 0.3s ease;
+}
+
+/* Apparition des messages */
+.chat-message {
+  animation: fadeInMsg 0.5s ease;
+}
+@keyframes fadeInMsg {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+<style>
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style></head>
+<body><hr style="width: 90%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px auto;"/>
+<div class="background-image">
+<img alt="Fond iMart" src="imart-background.jpg" style="filter: blur(6px);"/>
+</div>
+<div class="content">
+<div class="blur-box">
+<div id="chat" style="margin-top: 40px; max-width: 600px; width: 90%;">
+<div id="chatbox" style="color: white; padding: 10px; height: 300px; overflow-y: auto; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-radius: 10px;">
+<div class="chat-message"><strong>🤖 iMart IA :</strong> Bonjour ! Posez-moi une question sur une réparation 😊</div>
+</div>
+<div style="display: flex; gap: 10px;">
+<input id="userInput" placeholder="Votre question..." style="flex: 1; padding: 10px; border-radius: 5px; border: none;" type="text"/>
+<button onclick="sendMessage()" style="padding: 10px 15px; border-radius: 5px; background-color: #3b82f6; color: white; border: none;">Envoyer</button>
+</div>
+</div>
+<div style="margin-top: 30px; text-align: center;">
+<hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.3); margin: 0 auto 15px auto;"/>
+<p class="fade-in" style="font-size: 0.9em; color: white;">🔧 Réparation express, fiable et locale à Albi</p>
+<a href="mailto:Imart@outlook.fr" style="font-size: 0.85em; color: #93c5fd; text-decoration: underline;">Besoin d'aide ? Contactez-nous</a>
+</div>
+<p class="fade-in" style="margin-top: 20px; font-size: 0.9em; color: white; text-align: center;">"Votre téléphone est entre de bonnes mains"</p>
+<div class="email">
+Imart@outlook.fr</div>
+</div>
+</div></body>
 </html>
+<script>
+  const priceData = {
+  "iphone 13": {
+    "screen": 169,
+    "battery": 117,
+    "camera_rear": 155,
+    "camera_front": 110,
+    "speaker": 69,
+    "mic": 65,
+    "faceid": 90,
+    "back": 40
+  },
+  "iphone 13 pro": {
+    "screen": 178,
+    "battery": 117,
+    "camera_rear": 179,
+    "camera_front": 129,
+    "speaker": 72,
+    "mic": 68,
+    "faceid": 92,
+    "back": 40
+  },
+  "iphone 13 pro max": {
+    "screen": 169,
+    "battery": 121,
+    "camera_rear": 182,
+    "camera_front": 130,
+    "speaker": 74,
+    "mic": 69,
+    "faceid": 93,
+    "back": 40
+  }
+};
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === '') return;
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML += `<div class='chat-message' style='text-align:right; margin: 5px 0;'><span style='background:#4f46e5; padding:6px 10px; border-radius:10px; display:inline-block;'>${message}</span></div>`;
+    const lower = message.toLowerCase();
+    let reply = "Je n'ai pas compris 🤖. Essayez par exemple : 'combien pour un écran iPhone 13 ?'";
+
+    if (lower.includes("bonjour")) reply = "Bonjour ! Comment puis-je vous aider aujourd'hui ? 😊";
+    else if (lower.includes("rdv") || lower.includes("rendez-vous")) reply = "Bien sûr ! Écrivez-nous à Imart@outlook.fr pour prendre rendez-vous 📅.";
+    else if (lower.includes("temps") || lower.includes("délai")) reply = "En général, les réparations sont faites en moins de 24h ⏱️.";
+    else if (lower.includes("eau") || lower.includes("tombé")) reply = "Pas de panique 💧 ! Le diagnostic pour dégâts d'eau est à 25 €.";
+    else {
+      for (let model in priceData) {
+        if (lower.includes(model)) {
+          if (lower.includes("écran") || lower.includes("cassé")) {
+            reply = priceData[model].screen
+              ? `Le remplacement d'écran pour ${model} coûte ${priceData[model].screen} € 💡.`
+              : `Le prix de l'écran pour ${model} n'est pas disponible.`;
+            break;
+          }
+          if (lower.includes("batterie")) {
+            reply = priceData[model].battery
+              ? `Le changement de batterie pour ${model} coûte ${priceData[model].battery} € 🔋.`
+              : `Le prix de la batterie pour ${model} n'est pas disponible.`;
+            break;
+          }
+        }
+      }
+    }
+
+    chatbox.innerHTML += `<div class='chat-message' style='margin: 5px 0;'><strong>🤖 iMart IA :</strong> ${reply}</div>`;
+    chatbox.scrollTop = chatbox.scrollHeight;
+    input.value = '';
+  }
+</script>
